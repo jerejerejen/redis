@@ -2,61 +2,67 @@ package com.example.redis.cache;
 
 import org.springframework.stereotype.Component;
 import com.example.redis.fetcher.DataFetcher;
+import com.example.redis.repo.RedisRepository;
 
 @Component
-public class RedisProxy implements IRedis{
+public class RedisProxy{
 
-	private final RedisCache cache;
+	private final RedisRepository redisRepository;
 	private DataFetcher dataFetcher;
 
-    RedisProxy(RedisCache cache) {
-        this.cache = cache;
+    RedisProxy(RedisRepository redisRepository) {
+        this.redisRepository = redisRepository;
     }
-	
+    
 	public void connect(DataFetcher dataFetcher) {
 		this.dataFetcher = dataFetcher;
 	}
 	
-	@Override
 	public String get(String group, String key) {
-		String value = cache.get(group, key);
+		String value = redisRepository.get(key);
 
 		if(value == null) {
 			value = dataFetcher.fetchData(group, key);
-			cache.set(group, key, value);
+			redisRepository.set(key, value);
 			System.out.println("DataFetcher에서 가져온 데이터를 Redis에 저장합니다.");
 			
 		}else System.out.println("Redis 에서 데이터를 가져옵니다.");
 		return value;
 	}
-
-	@Override
+	
 	public void set(String group, String key, String value) {
-		dataFetcher.saveData(group, key, value);
-		cache.clear(group, key);
-		System.out.println("Redis 에서 해당 데이터를 삭제합니다.");
-		
+		try {
+			dataFetcher.saveData(group, key, value);
+		} finally {
+			redisRepository.clear(key);
+			System.out.println("Redis 에서 해당 데이터를 삭제합니다.");
+		}
 	}
-
-	@Override
+	
 	public void clear(String group, String key) {
-		cache.clear(group, key);
+		redisRepository.clear(key);
 		System.out.println("Redis 에서 해당 데이터를 삭제합니다.");
 	}
 
 	public void load(String group, String key) {
-		String value = dataFetcher.fetchData(group, key);
-		cache.set(group, key, value);
-		System.out.println("DataFetcher에서 가져온 데이터를 Redis에 저장합니다.");
+		String value = "";
+		try {
+			value = dataFetcher.fetchData(group, key);
+		} finally {
+			redisRepository.set(key, value);
+			System.out.println("DataFetcher에서 가져온 데이터를 Redis에 저장합니다.");
+		}
 	}
 	
 	public String get(String group, String key, String searchKey) {
-		String value = cache.get(group, key+searchKey);
-
+		String value = redisRepository.get(key+searchKey);
 		if(value == null) {
-			value = dataFetcher.fetchData(group, key, searchKey);
-			cache.set(group, key+searchKey, value);
-			
+			try {
+				value = dataFetcher.fetchData(group, key, searchKey);
+			} finally {
+				redisRepository.set(key+searchKey, value);
+				System.out.println("DataFetcher에서 가져온 데이터를 Redis에 저장합니다.");
+			}
 		}
 		return value;
 	}
@@ -64,10 +70,15 @@ public class RedisProxy implements IRedis{
 	public void clear(String group) {
 		
 	}
-
-	@Override
+	
 	public void set(String group, String key, String value, int ttl) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public String generateKey(String key) {
+		System.out.println("키를 생성합니다.");
+		return key;
+	}
+	
 }

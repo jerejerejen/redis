@@ -1,0 +1,17 @@
+package com.example.redis.cache;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+class RedisCacheTest {
+	
+	@Autowired
+	private RedisCache redisCache;
+
+	@Test
+	void testRedisCache() {
+		System.out.println(redisCache);
+	}
+}

@@ -1,0 +1,59 @@
+package com.example.redis.proxy;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import com.example.redis.cache.RedisCache;
+import com.example.redis.fetcher.DataFetcher;
+
+@Component
+public class RedisProxy implements DataFetcher {
+	private DataFetcher dataFetcher;
+	
+	@Autowired
+	private RedisCache cache;
+	
+	public void create(DataFetcher dataFetcher) {
+		this.dataFetcher = dataFetcher;
+	}
+
+	@Override
+	public String fetchData(String key) {
+		// TODO Auto-generated method stub
+        String data = cache.get(key);
+        if (data == null) {
+            data = dataFetcher.fetchData(key);
+            cache.set(key, data);
+        	System.out.println("Db에서 값을 가져옵니다.");
+        } else {
+        	System.out.println("Redis에서 값을 가져옵니다.");
+        }
+        return data;
+	}
+
+	@Override
+	public void writeData(String key, String data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void clear(String key) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void loadToCache(String key, String data) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+	
+	
+
+}

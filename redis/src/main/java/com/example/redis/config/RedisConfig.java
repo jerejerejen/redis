@@ -22,10 +22,6 @@ public class RedisConfig {
     RedisConnectionFactory redisConnectionFactory() {
     	// RedisConnectionFactory 를 통해 Redis 저장소와 연결
     	// Lettuce 사용
-    	
-    	System.out.println("redisHost: "+redisHost);
-
-    	System.out.println("redisPort: "+redisPort);
         return new LettuceConnectionFactory(redisHost, redisPort);
     }
  
