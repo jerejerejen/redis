@@ -264,3 +264,4 @@ test/
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java,maven,vue,node
 back-end/.sonarlint
 back-end/stx-master/stx-web-api/stx-web-api.tar
+/.metadata
