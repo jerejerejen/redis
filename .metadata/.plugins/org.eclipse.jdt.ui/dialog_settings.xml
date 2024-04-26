@@ -24,7 +24,7 @@
 		<item key="index" value="4"/>
 	</section>
 	<section name="RefactoringWizard.preview">
-		<item key="width" value="600"/>
+		<item key="width" value="648"/>
 		<item key="height" value="400"/>
 	</section>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
@@ -67,8 +67,25 @@
 		<item key="JarManifestWizardPage.MANIFEST_LOCATION" value=""/>
 		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\dlwpd\Desktop\redis-0.0.1.jar"/>
 			<item value="D:\redis-0.0.1.jar"/>
 			<item value="D:\dev_eclipse\OPEN-API-BETA\platform\news-service\libs\hello-0.0.1-SNAPSHOT.jar"/>
 		</list>
+	</section>
+	<section name="ProblemSeveritiesConfigurationBlock">
+		<item key="expanded0" value="true"/>
+		<item key="expanded1" value="false"/>
+		<item key="expanded2" value="false"/>
+		<item key="expanded3" value="false"/>
+		<item key="expanded4" value="false"/>
+		<item key="expanded5" value="false"/>
+		<item key="expanded6" value="false"/>
+		<item key="expanded7" value="false"/>
+		<item key="expanded8" value="false"/>
+	</section>
+	<section name="JavaBuildConfigurationBlock">
+		<item key="expanded0" value="true"/>
+		<item key="expanded1" value="false"/>
+		<item key="expanded2" value="false"/>
 	</section>
 </section>

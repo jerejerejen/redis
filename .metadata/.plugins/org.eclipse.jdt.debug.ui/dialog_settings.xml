@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth0" value="303"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth1" value="265"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth2" value="120"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.sortColumn" value="1"/>
 	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
 		<item key="ShowStatusLine" value="true"/>
 		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=redis-demo/C:\/Users\/dlwpd\/.m2\/repository\/org\/mybatis\/mybatis\/3.5.14\/mybatis-3.5.14.jar=/maven.pomderived=/true=/=/maven.groupId=/org.mybatis=/=/maven.artifactId=/mybatis=/=/maven.version=/3.5.14=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&amp;lt;org.apache.ibatis.javassist.tools.rmi(AppletServer.class[AppletServer&lt;/infoNode&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;"/>

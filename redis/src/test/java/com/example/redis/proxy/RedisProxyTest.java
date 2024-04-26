@@ -2,12 +2,17 @@ package com.example.redis.proxy;
 
 
 
+import java.util.concurrent.CountDownLatch;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import com.example.redis.cache.RedisProxy;
-import com.example.redis.fetcher.AuthDataFetcher;
-import com.example.redis.service.AuthService;
+
+import lombok.RequiredArgsConstructor;
 
 @SpringBootTest
 class RedisProxyTest {
@@ -18,23 +23,61 @@ class RedisProxyTest {
 	//@Autowired
 	//private RedisCache cache;
 
-	@Autowired	
-	private AuthService authService;
-
 	@Autowired
 	private RedisProxy redisProxy;
 	
+//	@Autowired
+//	public RedisProxyTest(RedisProxy redisProxy) {
+//		this.redisProxy = redisProxy;
+//	}
+//	@Autowired
+//	private RedisProxy redisProxy;
+	
 	@Test
 	void testGet() {
+		System.out.println(redisProxy);
 		
-		redisProxy.connect(new AuthDataFetcher(authService));
-
 		System.out.println("데이터 요청 테스트를 시작합니다. ");
 		
-		String data = redisProxy.get("group1", "key1");
-		
-		System.out.println("요청한 데이터를 반환합니다. "+data);
+		System.out.println("요청한 데이터를 반환합니다. "+redisProxy.get("group1", "key1"));
 	}
+	
+//	@Test
+//	void testHit() {
+//        
+//		System.out.println("redis get hit: "+redisProxy.getHit("user:234", "api:4234"));
+//		System.out.println("redis set hit: "+redisProxy.hit("user:234", "api:4234"));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+//		System.out.println("redis get hit: "+redisProxy.getHit("user:234", "api:4234"));
+//
+//		System.out.println("redis get hit: "+redisProxy.getHit("user:234", "api:0000"));
+//		System.out.println("redis set hit: "+redisProxy.hit("user:234", "api:0000"));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+//		System.out.println("redis get hit: "+redisProxy.getHit("user:234", "api:0000"));
+//		
+//		System.out.println("user:234에 대하여 모든 속성 값 출력"+redisProxy.getHitAll("user:234"));	
+//	}
+	
+//	@Test
+//	void 동시에_100개_요청() throws InterruptedException{
+//		int threadCount = 100;
+//		ExecutorService executorService = Executors.newFixedThreadPool(32);
+//		CountDownLatch latch = new CountDownLatch(threadCount);
+//		
+//	    for(int i=0; i<threadCount; i++){
+//	        executorService.submit(()->{
+//	            try{
+//	            	redisProxy.hit("user:234", "api:1111");
+//	            } finally {
+//	                latch.countDown();
+//	            }
+//	        });
+//	    }
+//	    
+//	    latch.await();
+//	    String hits = redisProxy.getHit("user:234", "api:1111");
+//	    
+//	    System.out.println("hits: "+hits);
+//	}
+	
 
 //	@Test
 //	void testSet() {

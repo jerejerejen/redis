@@ -9,7 +9,6 @@
     <fullyQualifiedTypeName name="org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory"/>
     <fullyQualifiedTypeName name="java.time.Duration"/>
     <fullyQualifiedTypeName name="org.springframework.data.redis.core.RedisTemplate"/>
-    <fullyQualifiedTypeName name="org.springframework.boot.test.context.SpringBootTest"/>
     <fullyQualifiedTypeName name="org.springframework.data.redis.core.ValueOperations"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
@@ -32,7 +31,6 @@
     <fullyQualifiedTypeName name="reactor.core.publisher.Mono"/>
     <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpHeaders"/>
-    <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="com.example.demo.util.WebClientUtil"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
     <fullyQualifiedTypeName name="java.lang.reflect.InvocationHandler"/>
@@ -41,7 +39,6 @@
     <fullyQualifiedTypeName name="java.lang.reflect.Proxy"/>
     <fullyQualifiedTypeName name="com.example.redis.proxy.DynamicProxy"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.example.redis.cache.Redis"/>
     <fullyQualifiedTypeName name="com.example.redis.cache.IRedis"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
@@ -50,4 +47,12 @@
     <fullyQualifiedTypeName name="com.example.redis.cache.RedisCache"/>
     <fullyQualifiedTypeName name="com.example.redis.fetcher.DataFetcher"/>
     <fullyQualifiedTypeName name="com.example.redis.cache.RedisProxy"/>
+    <fullyQualifiedTypeName name="com.example.redis.repo.RedisRepository"/>
+    <fullyQualifiedTypeName name="java.nio.charset.StandardCharsets"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.test.context.SpringBootTest"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.CountDownLatch"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 </qualifiedTypeNameHistroy>

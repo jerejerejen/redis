@@ -1,4 +1,0 @@
-spring.application.name=redis
-
-spring.data.redis.host=127.0.0.1
-spring.data.redis.port=7617
